@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e6e6e6">
+  <meta name="description" content="An art and graphic design portfolio presented inside a MacBook Notes inspired interface.">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="portfolio" aria-label="Art and graphic design portfolio">
+    <section class="artboard" aria-label="MacBook portfolio screen">
+      <div class="artboard__bezel" aria-hidden="true"></div>
+      <img class="artboard__wallpaper" src="assets/desktop-wallpaper.png" alt="" aria-hidden="true">
+      <header class="menu-bar">
+        <span class="menu-bar__notch" aria-hidden="true"></span>
+      </header>
+
+      <section class="notes-window" aria-label="Portfolio pages">
+        <aside class="sidebar" aria-label="Notes navigation">
+          <div class="sidebar__controls" aria-label="Window controls">
+            <span class="window-dot window-dot--close"></span>
+            <span class="window-dot window-dot--minimise"></span>
+            <span class="window-dot window-dot--expand"></span>
+          </div>
+          <label class="search-box">
+            <img class="search-box__icon" src="https://ipcdn-web.apple.com/assets/v2/web/e494e7fd-b085-4f91-96e2-dfa761549374" alt="" aria-hidden="true">
+            <span class="visually-hidden">Search portfolio pages</span>
+            <input id="page-search" type="search" placeholder="search" autocomplete="off">
+          </label>
+          <p class="sidebar__section-label">iCloud</p>
+          <nav class="page-navigation" aria-label="Portfolio pages">
+            <!-- PORTFOLIO:NAV_ITEMS:START -->
+            <a class="page-link is-current" href="#welcome" data-page="welcome" aria-current="page"><img class="page-link__icon" src="https://ipcdn-web.apple.com/assets/v2/web/b35c677f-8607-425a-aa82-a69b37f8cb28" alt=""><span>Welcome</span></a>
+            <a class="page-link" href="#resources" data-page="resources"><img class="page-link__icon" src="https://ipcdn-web.apple.com/assets/v2/web/b35c677f-8607-425a-aa82-a69b37f8cb28" alt=""><span>Resources</span></a>
+            <details class="folder-item" open>
+              <summary><img class="folder-chevron" src="https://ipcdn-web.apple.com/assets/v2/web/9cf763f7-f136-4bc7-a4c7-e609ae78c4c9" alt="" aria-hidden="true"><img class="folder-icon" src="https://ipcdn-web.apple.com/assets/v2/web/ba2004f4-97f9-4f8d-9514-85a37ab1b957" alt=""><span>Mock</span></summary>
+              <!-- PORTFOLIO:MOCK_ITEMS:START -->
+              <a class="page-link nested-link" href="#mock-page-1" data-page="mock-page-1"><img class="page-link__icon" src="https://ipcdn-web.apple.com/assets/v2/web/b35c677f-8607-425a-aa82-a69b37f8cb28" alt=""><span>Page 1</span></a>
+              <!-- PORTFOLIO:MOCK_ITEMS:END -->
+            </details>
+            <!-- PORTFOLIO:NAV_ITEMS:END -->
+            <a class="page-link terms-link" href="#terms" data-page="terms"><img class="page-link__icon" src="https://ipcdn-web.apple.com/assets/v2/web/b35c677f-8607-425a-aa82-a69b37f8cb28" alt=""><span>Terms Of Service</span></a>
+          </nav>
+        </aside>
+
+        <div class="page-surface" id="page-surface" aria-live="polite">
+          <div class="notes-toolbar" aria-hidden="true">
+            <span class="notes-toolbar__label">Notes</span>
+            <span class="notes-toolbar__actions">
+              <img class="toolbar-icon" src="https://ipcdn-web.apple.com/assets/v2/web/b35c677f-8607-425a-aa82-a69b37f8cb28" alt="" aria-hidden="true">
+              <img class="toolbar-icon" src="https://ipcdn-web.apple.com/assets/v2/web/b1d137e3-78b6-45f4-bea4-524ac98d0198" alt="" aria-hidden="true">
+              <img class="toolbar-icon" src="https://ipcdn-web.apple.com/assets/v2/web/dcb72763-97c7-4989-8625-ee101008f084" alt="" aria-hidden="true">
+              <img class="toolbar-icon" src="https://ipcdn-web.apple.com/assets/v2/web/cb1a85dc-bf00-4b78-906c-a62dba8d0e55" alt="" aria-hidden="true">
+              <img class="toolbar-icon" src="https://ipcdn-web.apple.com/assets/v2/web/880f9b70-b25b-42e4-bd74-6e42cd853373" alt="" aria-hidden="true">
+              <img class="toolbar-icon" src="https://ipcdn-web.apple.com/assets/v2/web/fe778e28-e18c-4af8-b185-bc087c046335" alt="" aria-hidden="true">
+              <img class="toolbar-icon" src="https://ipcdn-web.apple.com/assets/v2/web/f466bdbc-0412-490c-a8dc-b0bc87bc9335" alt="" aria-hidden="true">
+              <img class="toolbar-icon" src="https://ipcdn-web.apple.com/assets/v2/web/e494e7fd-b085-4f91-96e2-dfa761549374" alt="" aria-hidden="true">
+            </span>
+          </div>
+          <!-- PORTFOLIO:PAGE_VIEWS:START -->
+          <article class="page-view welcome-page" data-view="welcome" aria-label="Welcome">
+            <div class="welcome-page__content">
+              <header class="welcome-page__heading">
+                <h1 class="welcome-page__title">Welcome to My Portfolio!</h1>
+                <p class="welcome-page__intro">Welcome to my art graphics portfolio. This is the extended version, containing all my old work, with some remastered content.</p>
+              </header>
+              <section class="welcome-page__feature" aria-labelledby="welcome-about-title">
+                <figure class="welcome-page__hero"><img src="assets/mountain-landscape.png" alt="Mountain landscape at sunset"></figure>
+                <div class="welcome-page__details">
+                  <h2 id="welcome-about-title">A little about this portfolio</h2>
+                  <p class="welcome-page__note">Inspired by the clean profile of a MacBook and the simple, focused feel of Apple Notes.</p>
+                  <p class="welcome-page__caption">A collection of selected work, refreshed and remastered.</p>
+                  <div class="welcome-page__gallery" aria-label="Portfolio inspiration images">
+                    <figure class="welcome-page__tile welcome-page__tile--one"><img src="assets/notes-app-wide-thumbnail.png" alt="Notes app design reference on a laptop"></figure>
+                    <figure class="welcome-page__tile welcome-page__tile--two"><img src="assets/notes-app-detail-thumbnail.png" alt="Close view of a notes app design reference"></figure>
+                  </div>
+                </div>
+              </section>
+              <!-- PORTFOLIO:CONTENT:welcome:START -->
+              <!-- PORTFOLIO:CONTENT:welcome:END -->
+            </div>
+          </article>
+
+          <article class="page-view terms-page" data-view="terms" aria-label="Terms of Service" hidden>
+            <h1 class="terms-page__title">Terms Of Service</h1>
+            <div class="terms-copy">
+              <p class="terms-copy__updated">Last Updated: June 2026</p>
+              <p>By accessing, browsing, viewing, interacting with, or otherwise existing on this website ("the Portfolio"), you ("Visitor") agree to be bound by the following terms and conditions:</p>
+              <section><h2>1. Acceptance of Terms</h2><p>By being on this website, you acknowledge that the creator may, in fact, know what they are doing.</p></section>
+              <section><h2>2. Intellectual Property</h2><p>All designs, artwork, projects, and creative content displayed herein are the property of the Portfolio Owner unless otherwise stated. Unauthorized copying, theft, or claiming the work as your own is strongly discouraged and may result in disappointment, embarrassment, or legal action.</p></section>
+              <section><h2>3. Project Viewing</h2><p>Visitors are granted a limited, non-exclusive license to admire, appreciate, and occasionally be impressed by the contents of this Portfolio.</p></section>
+              <section><h2>4. Limitation of Liability</h2><p>The Portfolio Owner shall not be held responsible for:</p><ul><li>Missed deadlines caused by spending too long browsing projects.</li><li>Sudden inspiration resulting from exposure to creative work.</li><li>The irresistible urge to contact the creator regarding employment, freelance work, or collaboration opportunities.</li></ul></section>
+              <section><h2>5. User Conduct</h2><p>Users agree not to:</p><ul><li>Reverse engineer the website.</li><li>Copy projects without permission.</li><li>Criticize pixel-perfect alignment without first zooming in to 800%.</li></ul></section>
+              <section><h2>6. Performance Disclaimer</h2><p>While reasonable efforts have been made to ensure this website functions correctly, any bugs encountered should be considered temporary artistic expressions.</p></section>
+              <section><h2>7. Amendments</h2><p>These terms may be updated at any time without notice, usually after the Portfolio Owner learns a new CSS trick.</p></section>
+              <section><h2>8. Governing Law</h2><p>These Terms shall be governed by the universal principle that creative work deserves respect.</p></section>
+              <p>By remaining on this website, you confirm that you have read, understood, and accepted these Terms of Service and agree that the Portfolio Owner's work is, at minimum, "pretty good."</p>
+              <!-- PORTFOLIO:CONTENT:terms:START -->
+              <!-- PORTFOLIO:CONTENT:terms:END -->
+            </div>
+          </article>
+          <div class="page-view blank-page" data-view="resources" aria-label="Resources page is intentionally blank" hidden>
+            <!-- PORTFOLIO:CONTENT:resources:START -->
+            <!-- PORTFOLIO:CONTENT:resources:END -->
+          </div>
+          <div class="page-view blank-page" data-view="mock-page-1" aria-label="Mock Page 1 is intentionally blank" hidden>
+            <!-- PORTFOLIO:CONTENT:mock-page-1:START -->
+            <!-- PORTFOLIO:CONTENT:mock-page-1:END -->
+          </div>
+          <!-- PORTFOLIO:PAGE_VIEWS:END -->
+          <div class="scrollbar-track" aria-hidden="true"><span class="scrollbar-thumb"></span></div>
+        </div>
+      </section>
+
+      <nav class="dock" aria-label="Desktop dock">
+        <span class="dock__icon" role="img" aria-label="Finder"><img src="https://help.apple.com/assets/68AF4A4B86D71687240E66F4/68AF4A57E7E8EB927003A877/en_US/973da250f19955e1602c94cc01b9c95f.png" alt=""></span>
+        <span class="dock__icon" role="img" aria-label="App Store"><img src="https://ipcdn-web.apple.com/assets/v2/web/e67ebad9-5ab3-480c-a337-e95ed372130b" alt=""></span>
+        <span class="dock__icon" role="img" aria-label="Safari"><img src="https://ipcdn-web.apple.com/assets/v2/web/c6d93db1-d714-47ae-a19b-0ffd7095280e" alt=""></span>
+        <span class="dock__icon" role="img" aria-label="Messages"><img src="https://ipcdn-web.apple.com/assets/v2/web/126c8a75-d3c5-4333-9d4f-d1ce3c5b53c1" alt=""></span>
+        <span class="dock__icon" role="img" aria-label="Mail"><img src="https://ipcdn-web.apple.com/assets/v2/web/21cdc25e-05eb-405c-b42f-ce39cdadc21a" alt=""></span>
+        <span class="dock__icon" role="img" aria-label="Maps"><img src="https://ipcdn-web.apple.com/assets/v2/web/3d5ebbbe-050b-4cf7-b154-e24fd5a3bfbe" alt=""></span>
+        <span class="dock__icon" role="img" aria-label="Photos"><img src="https://ipcdn-web.apple.com/assets/v2/web/b32db0e8-9711-496f-83c5-0d16e70b6efb" alt=""></span>
+        <span class="dock__icon" role="img" aria-label="Calendar"><img src="https://ipcdn-web.apple.com/assets/v2/web/4dbc02d7-ac3b-4563-a91c-0dcea817af54" alt=""></span>
+        <span class="dock__icon" role="img" aria-label="Notes"><img src="https://ipcdn-web.apple.com/assets/v2/web/75242779-eaa8-4d10-b5eb-a010f0965d33" alt=""></span>
+        <span class="dock__icon" role="img" aria-label="Music"><img src="https://ipcdn-web.apple.com/assets/v2/web/1a149b3a-5a60-484e-9ed7-7d1782b46fe1" alt=""></span>
+        <span class="dock__icon" role="img" aria-label="Trash"><img src="https://ipcdn-web.apple.com/assets/v2/web/f537d3d4-ca08-4fa0-930f-1d0f17235d07" alt=""></span>
+      </nav>
+
+      <div class="laptop-base" aria-hidden="true"><span class="laptop-base__trackpad"></span></div>
+      <span class="laptop-foot laptop-foot--left" aria-hidden="true"></span>
+      <span class="laptop-foot laptop-foot--right" aria-hidden="true"></span>
+    </section>
+  </main>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

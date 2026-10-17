@@ -1,0 +1,230 @@
+/*
+ * Portfolio canvas
+ * The 1512 × 982 source canvas is preserved as percentages and cqw units.
+ * The desktop composition scales as a single artboard, keeping the supplied
+ * Figma geometry, radii and spacing proportional at every viewport size.
+ */
+:root {
+  color-scheme: light;
+  --canvas-width: 1512;
+  --canvas-height: 982;
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  --ink: #1d1d1f;
+  --ink-secondary: #6e6e73;
+  --window: #f5f5f7;
+  --sidebar: rgba(245, 245, 247, .76);
+  --apple-blue: #007aff;
+}
+
+* { box-sizing: border-box; }
+html, body { width: 100%; min-height: 100%; margin: 0; }
+body { min-height: 100vh; min-height: 100svh; overflow: hidden; color: var(--ink); font-family: var(--font-ui); background: linear-gradient(152deg, #efefef 0%, #a7a7a7 100%); }
+button, input { font: inherit; }
+.portfolio { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; overflow: hidden; background: linear-gradient(152deg, #efefef 0%, #a7a7a7 100%); }
+.artboard {
+  position: relative;
+  width: min(100vw, 154.0svh);
+  aspect-ratio: 1512 / 982;
+  overflow: hidden;
+  container-type: inline-size;
+  flex: 0 0 auto;
+  background: transparent;
+}
+
+/* MacBook outer display, black bezel, glass and camera notch. */
+.artboard__bezel { position: absolute; left: 6.2844%; top: 4.7312%; width: 87.3565%; height: 88.8697%; border-radius: 1.7857cqw 1.7857cqw .0661cqw .0661cqw; background: #000; }
+.artboard__wallpaper { position: absolute; left: 7.4854%; top: 6.4715%; width: 85.0304%; height: 82.7342%; border-radius: 1.3228cqw 1.3228cqw 0 0; object-fit: cover; }
+.menu-bar { position: absolute; z-index: 2; left: 7.4854%; top: 6.4715%; width: 85.0304%; height: 2.3961%; display: flex; align-items: center; justify-content: space-between; padding: 0 .815%; border-radius: 1.3228cqw 1.3228cqw 0 0; background: rgba(255, 255, 255, .18); color: rgba(255,255,255,.96); -webkit-backdrop-filter: blur(.45cqw) saturate(125%); backdrop-filter: blur(.45cqw) saturate(125%); }
+.menu-bar__notch { position: absolute; left: 43.84%; top: -2.506%; width: 13.17%; height: 102.5%; border-radius: 0 0 .3307cqw .3307cqw; background: #000; }
+
+/* Window and sidebar dimensions follow the supplied artboard measurements. */
+.notes-window { position: absolute; z-index: 1; left: 12.31%; top: 11.9196%; width: 75.778%; height: 67.7128%; display: grid; grid-template-columns: 18.515% 81.485%; overflow: hidden; border-radius: 1.3228cqw; background: rgba(245,245,247,.08); box-shadow: 0 .30cqw .82cqw rgba(0,0,0,.085), 0 .035cqw .12cqw rgba(0,0,0,.025); }
+.sidebar { position: relative; min-width: 0; padding: 0 0 0 7.2%; overflow: hidden; border-radius: 1.3228cqw 0 0 1.3228cqw; background: var(--sidebar); }
+.sidebar__controls { position: absolute; top: 2.95%; left: 7.18%; display: flex; align-items: center; gap: .2646cqw; }
+.window-dot { display: block; width: .8297cqw; height: .8297cqw; border-radius: 50%; }
+.window-dot--close { background: #f05e4c; }
+.window-dot--minimise { background: #edc159; }
+.window-dot--expand { background: #67c353; }
+.search-box { position: absolute; left: 7.18%; top: 6.77%; width: 87.03%; height: 4.50%; display: flex; align-items: center; gap: .45cqw; padding: 0 .48cqw; border: 1px solid rgba(255,255,255,.30); border-radius: .48cqw; background: rgba(255,255,255,.43); -webkit-backdrop-filter: blur(.35cqw); backdrop-filter: blur(.35cqw); }
+.search-box input { width: 100%; min-width: 0; padding: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: .91cqw; line-height: 1.25; appearance: none; }
+.search-box input::placeholder { color: var(--ink-secondary); opacity: .92; }
+.search-box input::-webkit-search-cancel-button { display: none; }
+.search-box__icon { display: block; width: .82cqw; height: .82cqw; flex: 0 0 .82cqw; object-fit: contain; opacity: .72; }
+.sidebar__section-label { position: absolute; top: 14.04%; left: 7.18%; margin: 0 0 .60cqw; padding-bottom: .22cqw; color: var(--ink-secondary); font-size: .92cqw; line-height: 1.35; }
+.page-navigation { position: absolute; top: 17.55%; left: 7.18%; width: 87.03%; height: 47.07%; display: flex; flex-direction: column; gap: .22cqw; padding: .24cqw; overflow: auto; border-radius: .53cqw; background: transparent; scrollbar-width: none; }
+.page-navigation::-webkit-scrollbar { display: none; }
+.page-link, .folder-item summary { position: relative; min-height: 1.62cqw; display: flex; align-items: center; gap: .36cqw; padding: 0 .48cqw; border-radius: .40cqw; color: var(--ink); font-size: .82cqw; line-height: 1.35; text-decoration: none; white-space: nowrap; cursor: pointer; list-style: none; }
+.page-link__icon, .folder-icon { display: block; width: .90cqw; height: .90cqw; flex: 0 0 .90cqw; object-fit: contain; opacity: .86; }
+.page-link:hover, .folder-item summary:hover { background: rgba(255,255,255,.28); }
+.page-link.is-current { background: rgba(0,122,255,.13); color: #1d1d1f; box-shadow: none; }
+.page-link[hidden] { display: none; }
+.folder-item { margin: 0; }
+.folder-item summary { gap: .276cqw; }
+.folder-item summary::-webkit-details-marker { display: none; }
+.folder-chevron { display: block; width: .50cqw; height: .50cqw; flex: 0 0 .50cqw; object-fit: contain; opacity: .76; transform: rotate(90deg); transition: transform 120ms ease-out; }
+.folder-item:not([open]) .folder-chevron { transform: rotate(0deg); }
+.nested-link { padding-left: 1.15cqw; }
+.terms-link { margin-top: auto; }
+.page-surface { position: relative; min-width: 0; min-height: 0; overflow: hidden; border-radius: 0 1.3228cqw 1.3228cqw 0; background: var(--window); }
+.page-view { position: absolute; inset: 0; width: 100%; height: 100%; }
+.page-view[hidden] { display: none !important; }
+.blank-page { overflow: auto; padding: 4cqw; scrollbar-width: none; }
+.blank-page::-webkit-scrollbar { display: none; }
+
+/* Notes controls use Apple-hosted toolbar images and restrained grouping. */
+.notes-toolbar { position: absolute; z-index: 2; top: 1.1%; left: 3.92%; right: 3.3%; height: 3.2%; min-height: 18px; display: flex; align-items: center; justify-content: space-between; color: var(--ink-secondary); }
+.notes-toolbar::after { position: absolute; right: 0; bottom: -.22cqw; left: 0; height: .055cqw; background: rgba(29,29,31,.10); content: ""; }
+.notes-toolbar__label { color: var(--ink-secondary); font-size: .80cqw; font-weight: 500; letter-spacing: .01em; }
+.notes-toolbar__actions { display: flex; align-items: center; justify-content: flex-end; gap: .55cqw; height: 100%; }
+.toolbar-icon { display: block; width: 1.12cqw; height: 1.12cqw; min-width: 12px; min-height: 12px; object-fit: contain; opacity: .68; }
+
+/* Welcome page: aligned editorial rhythm, generous text spacing, calm imagery. */
+.welcome-page { overflow: auto; scrollbar-width: none; }
+.welcome-page::-webkit-scrollbar { display: none; }
+.welcome-page__content { padding: 6.7% 4.6% 4.5%; }
+.welcome-page__heading { margin: 0; }
+.welcome-page__title, .terms-page__title { margin: 0; color: var(--ink); font-size: 1.55cqw; line-height: 1.16; font-weight: 600; letter-spacing: -.018em; }
+.welcome-page__intro { max-width: 94%; margin: .72cqw 0 0; color: var(--ink-secondary); font-size: .96cqw; line-height: 1.55; }
+.welcome-page__feature { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); gap: 2.1cqw; align-items: start; margin-top: 2.3cqw; }
+.welcome-page__hero, .welcome-page__tile { min-width: 0; margin: 0; overflow: hidden; border-radius: .68cqw; background: rgba(29,29,31,.04); }
+.welcome-page__hero { aspect-ratio: 474 / 296; }
+.welcome-page__hero img, .welcome-page__tile img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.welcome-page__details { min-width: 0; padding-top: .12cqw; }
+.welcome-page__details h2 { margin: 0 0 .85cqw; color: var(--ink); font-size: 1.13cqw; line-height: 1.25; font-weight: 600; letter-spacing: -.01em; }
+.welcome-page__note, .welcome-page__caption { margin: 0 0 .8cqw; color: var(--ink); font-size: .92cqw; line-height: 1.58; }
+.welcome-page__caption { margin-top: .45cqw; color: var(--ink-secondary); }
+.welcome-page__gallery { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .7cqw; margin-top: 1.25cqw; }
+.welcome-page__tile { aspect-ratio: 340 / 211; }
+
+/* Terms page typography and its deliberately visible custom scrollbar. */
+.terms-page { overflow: hidden; }
+.terms-page::-webkit-scrollbar { display: none; }
+.terms-page__title { position: absolute; left: 4.71%; top: 5.2%; }
+.terms-copy { position: absolute; top: 11.8%; left: 4.71%; width: 86.5%; max-height: 84%; overflow: auto; color: var(--ink); font-size: .92cqw; line-height: 1.58; scrollbar-width: none; }
+.terms-copy::-webkit-scrollbar { display: none; }
+.terms-copy p { margin: 0 0 .8cqw; }
+.terms-copy__updated { color: var(--ink-secondary); }
+.terms-copy section { margin-top: 1.3cqw; }
+.terms-copy h2 { margin: 0 0 .38cqw; color: var(--ink); font-size: .98cqw; line-height: 1.35; font-weight: 600; }
+.terms-copy ul { margin: 0 0 .8cqw; padding-left: 1.15cqw; }
+.terms-copy li { margin: 0 0 .22cqw; }
+.scrollbar-track { display: none; position: absolute; z-index: 3; top: 6.42%; right: 1.42%; width: .8783cqw; height: 89.18%; overflow: hidden; border-radius: 1.3228cqw; background: #cacaca; pointer-events: none; }
+.scrollbar-thumb { display: block; width: 100%; height: 21.09%; border-radius: 1.3228cqw; background: #bebebe; }
+.page-surface.is-terms .scrollbar-track { display: block; }
+
+/* Reusable content blocks for new portfolio work (kept separate from the
+   screenshot-matched Welcome and Terms pages). */
+.content-heading { margin: 0 0 1rem; }
+.content-heading h1 { margin: 0 0 .35rem; font-size: clamp(20px, 1.3228cqw, 30px); font-weight: 400; line-height: 1.25; }
+.content-subtitle { margin: 0; font-size: clamp(15px, .9921cqw, 22px); line-height: 1.4; }
+.media-text-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.media-text-row--image-right .media-text-row__image { order: 2; }
+.media-text-row--image-right .media-text-row__copy { order: 1; }
+.media-text-row__image, .full-width-image, .image-gallery__item { margin: 0; min-width: 0; }
+.media-image { overflow: hidden; }
+.media-image--rounded { border-radius: 14px; }
+.media-image--rounded-small { border-radius: 8px; }
+.media-image--rounded-large { border-radius: 24px; }
+.media-image--circle { aspect-ratio: 1; border-radius: 50%; }
+.media-image--circle img { width: 100%; height: 100%; object-fit: cover; }
+.media-image--zoom-110 img { transform: scale(1.10); }
+.media-image--zoom-125 img { transform: scale(1.25); }
+.media-image--zoom-150 img { transform: scale(1.5); }
+.media-image--focus-left img { object-position: 35% center; }
+.media-image--focus-right img { object-position: 65% center; }
+.media-image--focus-top img { object-position: center 35%; }
+.media-image--focus-bottom img { object-position: center 65%; }
+.media-text-row__image img, .full-width-image img, .image-gallery__item img { display: block; width: 100%; height: auto; }
+.media-image img { height: 100%; object-fit: cover; }
+.media-text-row__copy h2, .project-information h2 { margin: 0 0 8px; font-size: clamp(18px, 1.3228cqw, 24px); font-weight: 400; }
+.media-text-row__copy p, .project-information p { margin: 0 0 10px; font-size: clamp(15px, .9921cqw, 22px); line-height: 1.4; }
+.media-text-row__image figcaption, .full-width-image figcaption, .image-gallery__item figcaption { margin-top: 6px; color: #555; font-size: clamp(12px, .7937cqw, 18px); line-height: 1.35; }
+.full-width-image img { max-width: 100%; }
+.image-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.project-information { margin: 16px 0; }
+.project-information .project-information__meta { color: #666; }
+
+/* The Apple Dock uses supplied app artwork; only the translucent dock surface is styled here. */
+.dock { position: absolute; z-index: 4; left: 30.48%; top: 81.45%; width: 38.32%; height: 5.84%; display: flex; align-items: center; justify-content: space-between; gap: .58%; padding: .2646cqw .5291cqw; border: 1px solid rgba(255,255,255,.34); border-radius: 1.02cqw; background: rgba(245,245,247,.38); -webkit-backdrop-filter: blur(.7cqw) saturate(135%); backdrop-filter: blur(.7cqw) saturate(135%); box-shadow: 0 .12cqw .34cqw rgba(0,0,0,.06); }
+.dock__icon { position: relative; display: block; width: 2.8036cqw; height: 2.8036cqw; flex: 0 0 2.8036cqw; aspect-ratio: 1; overflow: hidden; border-radius: .64cqw; }
+.dock__icon img { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: inherit; }
+/* Laptop bottom shell and feet. */
+.laptop-base { position: absolute; left: 3.54%; top: 93.42%; width: 92.98%; height: 4.59%; border-radius: .6614cqw; background: linear-gradient(180deg,#ededed 0%,#e5e5e5 52%,#d3d3d3 100%); box-shadow: none; }
+.laptop-base__trackpad { position: absolute; left: 42.50%; top: 0; width: 15.36%; height: 66.08%; border-radius: 0 0 .6614cqw .6614cqw; background: #d9d9d9; box-shadow: none; }
+.laptop-foot { position: absolute; top: 98.003%; width: 7.185%; height: .70%; background: #454545; }
+.laptop-foot--right { left: 83.91%; }
+.laptop-foot--left { left: 8.505%; }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+
+/* No mobile MacBook frame was supplied: retain the app and reflow its content. */
+@media (max-width: 760px) {
+  body { overflow: auto; }
+  .portfolio { display: block; min-height: 100vh; min-height: 100svh; overflow: auto; }
+  .artboard { width: 100%; min-height: 100vh; min-height: 100svh; aspect-ratio: auto; overflow: hidden; }
+  .artboard__bezel, .laptop-base, .laptop-foot { display: none; }
+  .artboard__wallpaper { inset: 0; width: 100%; height: 100%; border-radius: 0; object-fit: cover; }
+  .menu-bar { left: 0; top: 0; width: 100%; height: 38px; padding: 0; border-radius: 0; background: rgba(20,20,22,.24); }
+  .menu-bar__notch { display: none; }
+  .notes-window { left: 3%; top: 50px; width: 94%; height: calc(100svh - 115px); min-height: 340px; grid-template-columns: minmax(125px, 30%) 1fr; border-radius: 14px; }
+  .sidebar { border-radius: 14px 0 0 14px; }
+  .sidebar__controls { top: 13px; left: 10px; gap: 5px; }
+  .window-dot { width: 10px; height: 10px; }
+  .search-box { left: 8px; top: 48px; width: calc(100% - 16px); height: 32px; gap: 6px; padding: 0 8px; border-radius: 7px; }
+  .search-box__icon { width: 13px; height: 13px; flex-basis: 13px; }
+  .search-box input, .sidebar__section-label { font-size: 12px; }
+  .sidebar__section-label { top: 94px; left: 10px; margin-bottom: 7px; }
+  .page-navigation { top: 120px; left: 6px; width: calc(100% - 12px); height: auto; bottom: 8px; gap: 3px; padding: 3px; }
+  .page-link, .folder-item summary { min-height: 31px; gap: 7px; padding: 0 7px; border-radius: 6px; font-size: 11px; }
+  .page-link__icon, .folder-icon { width: 14px; height: 14px; flex-basis: 14px; }
+  .nested-link { padding-left: 16px; }
+  .folder-chevron { width: 8px; height: 8px; flex-basis: 8px; }
+  .page-surface { border-radius: 0 14px 14px 0; }
+  .blank-page { padding: 18px; }
+  .notes-toolbar { top: 7px; left: 16px; right: 14px; height: 26px; min-height: 26px; }
+  .notes-toolbar::after { bottom: 0; height: 1px; }
+  .notes-toolbar__label { font-size: 12px; }
+  .notes-toolbar__actions { gap: 5px; }
+  .toolbar-icon { width: 14px; height: 14px; min-width: 12px; min-height: 12px; }
+  .welcome-page__content { padding: 48px 18px 24px; }
+  .welcome-page__title, .terms-page__title { font-size: 18px; line-height: 1.2; letter-spacing: -.01em; }
+  .welcome-page__intro { max-width: none; margin-top: 8px; font-size: 13px; line-height: 1.55; }
+  .welcome-page__feature { grid-template-columns: 1fr; gap: 18px; margin-top: 22px; }
+  .welcome-page__hero, .welcome-page__tile { border-radius: 8px; }
+  .welcome-page__details { padding-top: 2px; }
+  .welcome-page__details h2 { margin-bottom: 9px; font-size: 15px; }
+  .welcome-page__note, .welcome-page__caption { margin-bottom: 10px; font-size: 13px; line-height: 1.55; }
+  .welcome-page__gallery { gap: 8px; margin-top: 14px; }
+  .terms-page { overflow: auto; }
+  .terms-page__title { left: 18px; top: 50px; max-width: calc(100% - 36px); }
+  .terms-copy { top: 87px; left: 18px; width: calc(100% - 42px); max-height: calc(100% - 100px); font-size: 12px; line-height: 1.55; }
+  .terms-copy p { margin-bottom: 10px; }
+  .terms-copy section { margin-top: 18px; }
+  .terms-copy h2 { margin-bottom: 5px; font-size: 12px; }
+  .terms-copy ul { margin-bottom: 10px; padding-left: 16px; }
+  .terms-copy li { margin-bottom: 3px; }
+  .scrollbar-track { right: 5px; top: 54px; bottom: 8px; width: 4px; height: auto; }
+  .dock { left: 50%; top: auto; bottom: 12px; width: min(90%, 430px); height: 44px; transform: translateX(-50%); gap: .5%; padding: 4px; border-radius: 12px; }
+  .dock__icon { width: clamp(22px, 7.5%, 30px); height: clamp(22px, 7.5%, 30px); flex-basis: clamp(22px, 7.5%, 30px); aspect-ratio: 1; border-radius: 6px; }
+  .media-text-row { grid-template-columns: 1fr; }
+  .media-text-row--image-right .media-text-row__image,
+  .media-text-row--image-right .media-text-row__copy { order: initial; }
+  .image-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+
+@media (max-width: 430px) {
+  .notes-window { left: 2%; width: 96%; grid-template-columns: 115px minmax(0,1fr); }
+  .sidebar__controls { left: 8px; }
+  .page-link, .folder-item summary { gap: 4px; padding-right: 5px; padding-left: 5px; font-size: 10px; }
+  .page-link__icon, .folder-icon { width: 11px; height: 11px; flex-basis: 11px; }
+  .folder-chevron { width: 7px; height: 7px; flex-basis: 7px; }
+  .welcome-page__title, .terms-page__title { font-size: 16px; }
+  .welcome-page__intro { font-size: 12px; }
+  .terms-copy { font-size: 11px; }
+  .dock { width: 92%; gap: .3%; }
+  .dock__icon { width: clamp(20px, 7.2%, 27px); height: clamp(20px, 7.2%, 27px); flex-basis: clamp(20px, 7.2%, 27px); }
+}
+
+/* PORTFOLIO:CUSTOM_PAGE_STYLES:START */
+/* Add page-specific rules here only when existing component options are insufficient. */
+/* PORTFOLIO:CUSTOM_PAGE_STYLES:END */
